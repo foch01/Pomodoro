@@ -3,14 +3,23 @@
  * * YOUR CODE GOES HERE ! * *
  * * * * * * * * * * * * * * *
  * * * * * * * * * * * * * * */
+
+$("#play").click(play);
+$("#pause").click(enPause);
+$("#stop").click(stop);
+
+
 var seconde = 0;
 var minute = 0;
 var heure = 0;
 
+
+
 function play(){
-    
+    if (minute < 25){
         seconde +=1;
         document.getElementById("seconde").innerHTML = seconde;
+        }
     //Actualisation des minutes
         if ( seconde == 59 ){
             minute +=1;
@@ -21,6 +30,18 @@ function play(){
                 seconde = 0;
         document.getElementById("seconde").innerHTML = seconde;
             }
+    
+        var premiereTache = $("#task").val();
+    
+    if ( seconde == 10){
+        
+        document.getElementById("fini").innerHTML = premiereTache;
+        document.getElementById("fini").className = "list-group-item done";
+
+    }
+       else {
+           document.getElementById("tache").innerHTML = premiereTache;
+       }
         pause = setTimeout(play,1000);
     }
 
@@ -37,16 +58,5 @@ function stop () {
     clearTimeout(pause);
 }
 
-function taches () {
 
-        var premiereTache = document.getElementById("task").innerHTML;
-    
-        document.getElementById("tache").innerHTML = premiereTache;
-    }
-
-
-$("#play").click(taches)
-$("#play").click(play);
-$("#pause").click(enPause);
-$("#stop").click(stop);
 
