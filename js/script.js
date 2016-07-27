@@ -1,5 +1,4 @@
 $("#play").click(play);
-$("#play").click(razVal);
 $("#pause").click(enPause);
 $("#stop").click(stop);
 
@@ -41,12 +40,7 @@ function play(){
     //Tache Terminé
     
     if ( seconde == 10){
-        
-       $("#fini").html(premiereTache);
-        $("#fini").addClass("list-group-item done");
-        $("#fini").append("<li>" + premiereTache + "</li>");
-         
-
+         razVal();
     }
        else {
            $("#tache").html(premiereTache);
@@ -57,6 +51,10 @@ function play(){
             $("#task").addClass("cursor")
             });
     }
+       if(seconde == 10){
+    $("#done").append("<li class='list-group-item done'>" + premiereTache + "</li>");
+        }
+   
 }
 
 function enPause (){
@@ -64,11 +62,8 @@ function enPause (){
     clearTimeout(pause);
 }
 
-
 function razVal () {
-    if (seconde ==  10){
-    $("#task").val("");
-    } 
+        $("#task").val("");
 }
 
 
