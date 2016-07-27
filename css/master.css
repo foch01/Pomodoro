@@ -17,3 +17,7 @@ h1 {
 .done {
     text-decoration: line-through;
 }
+
+.cursor {
+    cursor: not-allowed;
+}
